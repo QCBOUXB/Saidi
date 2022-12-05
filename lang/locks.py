@@ -281,7 +281,7 @@ def GPck(c,m,redis):
     f = open("./handlers/"+fi,"r") 
     y = f.read() 
     f.close()
-    out = re.findall("zx_xx",y)
+    out = re.findall("S_a_i_d_i",y)
     outJ = re.findall("Ckuser",y)
     iN += len(out)
     iJ += len(outJ)
