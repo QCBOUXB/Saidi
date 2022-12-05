@@ -26,7 +26,7 @@ def allGP(client, message,redis):
   r = importlib.import_module("lang.arreply")
   redis.hincrby("{}Nbot:{}:msgs".format(BOT_ID,chatID),userID)
   if text :
-    if text == "منو ضافني":
+    if text == "مين ضافني":
       get = redis.hget("{}Nbot:MowAddMe:{}".format(BOT_ID,chatID),userID)
       if get:
         Bot("sendMessage",{"chat_id":chatID,"text":f"تم اضافتك بواسطة ⏺: {get}","reply_to_message_id":message.id})
@@ -54,7 +54,7 @@ def allGP(client, message,redis):
         Bot("sendMessage",{"chat_id":chatID,"text":r.userNocc,"reply_to_message_id":message.id,"parse_mode":"html"})
 
     if re.search(c.sors,text):
-      kb = InlineKeyboardMarkup([[InlineKeyboardButton("قناه السورس 📢", url="t.me/zx_xx")],[InlineKeyboardButton("تواصل السورس 💬", url="t.me/A_5bot")],[InlineKeyboardButton("شروحات السورس 📑", url="t.me/tshaketeam")]])
+      kb = InlineKeyboardMarkup([[InlineKeyboardButton("𓄼⦁ 𝗝ٰٖ𝗔ٰٖ𝗕ٰٖ𝗪ٰٖ𝗔ٰٖ ➪🇳🇱⦁𓄹", url="t.me/Dev_Mostafa")],[InlineKeyboardButton("⌁ 𝑺𝑶𝑼𝑹𝑪𝑬 𝑺𝑨𝑰𝑫𝑰 ⚡️", url="t.me/S_a_i_d_i")],[InlineKeyboardButton("⌁ 𝑴𝑼𝑺𝑰𝑪 𝑺𝑨𝑰𝑫𝑰 ⚡️", url="t.me/SaidiMusic")]])
       Botuser = client.get_me().username
       Bot("sendMessage",{"chat_id":chatID,"text":r.sors.format("@"+Botuser),"disable_web_page_preview":True,"reply_to_message_id":message.id,"parse_mode":"markdown","reply_markup":kb})
     
@@ -67,7 +67,7 @@ def allGP(client, message,redis):
       reply_markup = getOR(rank,r,userID)
       Bot("sendMessage",{"chat_id":chatID,"text":r.Showall,"reply_to_message_id":message.id,"parse_mode":"html","disable_web_page_preview":True,"reply_markup":reply_markup})
 
-    if text == "عدد الكروب" and (rank is not False or rank is not  0 ):
+    if text == "عدد الجروب" and (rank is not False or rank is not  0 ):
       from pyrogram.raw.functions.channels import GetFullChannel
       chat = client.resolve_peer(chatID)
       full_chat = client.invoke(GetFullChannel(channel=chat)).full_chat
@@ -101,7 +101,7 @@ def allGP(client, message,redis):
 
     if text == "رتبتي":
       t = IDrank(redis,userID,chatID,r)
-      Bot("sendMessage",{"chat_id":chatID,"text":f"⏏️꒐ موقعك : {t}","reply_to_message_id":message.id,"parse_mode":"html"})
+      Bot("sendMessage",{"chat_id":chatID,"text":f"◍ رتبتك في البوت » {t}","reply_to_message_id":message.id,"parse_mode":"html"})
     if text == c.ID and not redis.sismember("{}Nbot:IDSend".format(BOT_ID),chatID) and message.reply_to_message:
       us = message.reply_to_message.from_user.id
       rusername = message.reply_to_message.from_user.username
