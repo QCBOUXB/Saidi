@@ -99,9 +99,6 @@ def allGP(client, message,redis):
       if Ch == True:
         Bot("sendMessage",{"chat_id":chatID,"text":tx.format(username=("@"+username or "None"),id=userID,stast=t,msgs=msgs,edits=edits,age=age,rate=str(rate)+"%"),"reply_to_message_id":message.id,"parse_mode":"html"})
 
-    if text == "بوت":
-      t = IDrank(redis,userID,chatID,r)
-      Bot("sendMessage",{"chat_id":chatID,"text":f"◍ نعم حبيبي » {t} 🥺❤️","reply_to_message_id":message.id,"parse_mode":"html"})
       if text == "رتبتي":
       t = IDrank(redis,userID,chatID,r)
       Bot("sendMessage",{"chat_id":chatID,"text":f"◍ رتبتك في البوت » {t}","reply_to_message_id":message.id,"parse_mode":"html"})
