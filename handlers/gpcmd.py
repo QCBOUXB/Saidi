@@ -791,7 +791,7 @@ __italic__
           i = 1
           for u in tagall:
             if u.user.first_name:
-              listTag = listTag+"\n"+str(i)+" » [{}]".format(u.user.first_name)
+              listTag = listTag+"\n"+str(i)+" » [{}](tg://user?id={})".format(u.user.first_name,u.user.id)
             else:
               listTag = listTag+"\n"+str(i)+" » [{}](tg://user?id={})".format(u.user.first_name,u.user.id)
             i += 1 
